@@ -57,7 +57,11 @@ class TechDraUtility: NSObject, AVAudioPlayerDelegate {
         var error: NSError? = nil
         NSLog("%@", error!)
         */
-        SE_audioPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        do {
+            SE_audioPlayer = try AVAudioPlayer(contentsOfURL: fileURL)
+        } catch {
+            print("ファイルの読み込みに失敗しました")
+        }
         SE_audioPlayer.prepareToPlay()
         if SE_audioPlayer.playing == true {
             SE_audioPlayer.currentTime = 0
@@ -82,7 +86,11 @@ class TechDraUtility: NSObject, AVAudioPlayerDelegate {
         var error: NSError? = nil
         NSLog("%@", error!)
         */
-        BGM_audioPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        do {
+            BGM_audioPlayer = try AVAudioPlayer(contentsOfURL: fileURL, fileTypeHint: nil)
+        } catch {
+            print("ファイルの読み込みに失敗しました")
+        }
         BGM_audioPlayer.numberOfLoops = -1
         BGM_audioPlayer.delegate = self
         BGM_audioPlayer.prepareToPlay()

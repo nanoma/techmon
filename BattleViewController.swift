@@ -29,7 +29,7 @@ class BattleViewController: UIViewController, AVAudioPlayerDelegate {
         staminaBar.transform = CGAffineTransformMakeScale(1.0, 4.0)
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        var level: Int = userDefaults.integerForKey("level")
+        let level: Int = userDefaults.integerForKey("level")
         
         nameLabel.text = player.name
         levelLabel.text = String(format: "Lv. %d", level + 1)
@@ -57,7 +57,7 @@ class BattleViewController: UIViewController, AVAudioPlayerDelegate {
         staminaTimer.fire()
     }
     
-    func updateDtaminaValue(){
+    func updateStaminaValue(){
         if stamina <= 100{
             stamina = stamina + 1
             staminaBar.progress = stamina / 100

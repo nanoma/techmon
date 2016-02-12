@@ -110,7 +110,7 @@ class ViewController: UIViewController {
             finishedMessage = "プレイヤーの敗北……"
         }
         
-        var alert = UIAlertController(title: "バトル終了！", message: finishedMessage, preferredStyle:
+        let alert = UIAlertController(title: "バトル終了！", message: finishedMessage, preferredStyle: //varからletに
         UIAlertControllerStyle.Alert)
         
         alert.addAction  (UIAlertAction(title: "OK", style: .Default, handler: {
@@ -127,7 +127,7 @@ class ViewController: UIViewController {
         timer.fire()
     }
     
-    func upfateHPValue() {
+    func updateHPValue() {
         if enemy.currentHP < enemy.maxHP{
             enemy.currentHP = enemy.currentHP + enemy.defencePoint
             enemyHPBar.progress = enemy.currentHP / enemy.maxHP
